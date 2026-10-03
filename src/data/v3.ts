@@ -1,5 +1,13 @@
-// Contenido de la Versión C — Audaz, tomado del diseño de Figma
+// Contenido del sitio. Todo el texto vive aquí: para actualizar la web y el
+// CV basta con editar este archivo. Parte del diseño de Figma
 // (archivo pJuXRkK8YDeOJDkw9ylDjV, frame "Versión C — Audaz" 4042:58).
+
+// Dirección pública del sitio. Vercel la inyecta sola al construir: es el
+// dominio propio si hay uno configurado y, si no, el `*.vercel.app`. Así las
+// vistas previas al compartir y el sitemap nunca apuntan a un dominio que no
+// existe, y no hay que tocar nada el día que se conecte un dominio.
+const dominio = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+export const SITIO = dominio ? `https://${dominio}` : "http://localhost:3000";
 
 export const perfil = {
   nombre: "Jorge Rodríguez",

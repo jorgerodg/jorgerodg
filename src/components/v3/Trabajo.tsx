@@ -17,7 +17,7 @@ export default function Trabajo() {
             return (
               <li key={c.slug} className="v3-revelar">
                 <Link
-                  href={`/v3/trabajo/${c.slug}`}
+                  href={`/trabajo/${c.slug}`}
                   className="group flex flex-col gap-5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-c-accent"
                 >
                   <div className="relative flex h-[400px] flex-col justify-between overflow-hidden rounded-3xl border border-c-line bg-c-surface px-6 pt-6 pb-3 transition-colors duration-150 ease-[cubic-bezier(0.2,0,0,1)] group-hover:border-c-accent lg:h-[460px]">

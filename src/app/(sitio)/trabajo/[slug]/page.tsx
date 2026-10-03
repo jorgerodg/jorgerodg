@@ -16,7 +16,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const caso = casoPorSlug(slug);
   if (!caso) return {};
-  return { title: caso.titulo, description: caso.resumen };
+  return {
+    title: caso.titulo,
+    description: caso.resumen,
+    // Sin esto la ficha hereda el canonical "/" del layout raíz y le dice a
+    // Google que es un duplicado de la portada.
+    alternates: { canonical: `/trabajo/${caso.slug}` },
+  };
 }
 
 export default async function CasoPage({ params }: Props) {
@@ -46,7 +52,7 @@ export default async function CasoPage({ params }: Props) {
       <header className={`${SECCION} pt-10 pb-16 lg:pt-14`}>
         <div className={`${CONTENEDOR} flex flex-col gap-10`}>
           <Link
-            href="/v3#trabajo"
+            href="/#trabajo"
             className="v3-label w-fit text-c-muted transition-colors duration-150 hover:text-c-fg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-c-accent"
           >
             ← Casos seleccionados
@@ -168,7 +174,7 @@ export default async function CasoPage({ params }: Props) {
       >
         <div className={`${CONTENEDOR} flex flex-wrap justify-between gap-6`}>
           <Link
-            href={`/v3/trabajo/${anterior.slug}`}
+            href={`/trabajo/${anterior.slug}`}
             className="group flex max-w-[45%] flex-col gap-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-c-accent"
           >
             <span className="v3-body-sm text-c-muted">← Anterior</span>
@@ -177,7 +183,7 @@ export default async function CasoPage({ params }: Props) {
             </span>
           </Link>
           <Link
-            href={`/v3/trabajo/${siguiente.slug}`}
+            href={`/trabajo/${siguiente.slug}`}
             className="group flex max-w-[45%] flex-col gap-1 text-right focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-c-accent"
           >
             <span className="v3-body-sm text-c-muted">Siguiente →</span>

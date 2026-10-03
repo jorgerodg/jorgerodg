@@ -1,45 +1,40 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import {
-  certifications,
-  education,
-  experience,
-  profile,
-  skills,
-} from "@/data/cv";
+  certificados,
+  educacion,
+  oficio,
+  perfil,
+  SITIO,
+  trayectoria,
+} from "@/data/v3";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const title = `${profile.name} — ${profile.role}`;
+const puesto = perfil.puesto.split(" en ")[0];
+const title = `${perfil.nombre} — ${puesto}`;
 
 export const metadata: Metadata = {
-  metadataBase: new URL(profile.site),
+  metadataBase: new URL(SITIO),
   title: {
     default: title,
-    template: `%s — ${profile.name}`,
+    template: `%s — ${perfil.nombre}`,
   },
-  description: profile.tagline,
-  applicationName: profile.name,
-  authors: [{ name: profile.name, url: profile.site }],
-  creator: profile.name,
+  description: perfil.frase,
+  applicationName: perfil.nombre,
+  authors: [{ name: perfil.nombre, url: SITIO }],
+  creator: perfil.nombre,
   alternates: { canonical: "/" },
   openGraph: {
     type: "profile",
     locale: "es_EC",
     url: "/",
-    siteName: profile.name,
+    siteName: perfil.nombre,
     title,
-    description: profile.tagline,
+    description: perfil.frase,
   },
   twitter: {
     card: "summary_large_image",
     title,
-    description: profile.tagline,
+    description: perfil.frase,
   },
   robots: {
     index: true,
@@ -50,36 +45,37 @@ export const metadata: Metadata = {
 
 /** Datos estructurados: permiten a Google mostrar puesto, empresa y perfiles. */
 function personJsonLd() {
+  const [ciudad] = perfil.ciudad.split(",");
   return {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: profile.name,
-    jobTitle: profile.role,
-    description: profile.tagline,
-    url: profile.site,
-    image: new URL(profile.photo, profile.site).toString(),
-    email: `mailto:${profile.email}`,
+    name: perfil.nombre,
+    jobTitle: puesto,
+    description: perfil.frase,
+    url: SITIO,
+    image: new URL(perfil.retrato, SITIO).toString(),
+    email: `mailto:${perfil.email}`,
     address: {
       "@type": "PostalAddress",
-      addressLocality: profile.city,
-      addressCountry: profile.country,
+      addressLocality: ciudad,
+      addressCountry: "EC",
     },
-    worksFor: { "@type": "Organization", name: experience[0].company },
-    alumniOf: education.map((item) => ({
+    worksFor: { "@type": "Organization", name: trayectoria[0].empresa },
+    alumniOf: educacion.map((e) => ({
       "@type": "EducationalOrganization",
-      name: item.place,
+      name: e.institucion,
     })),
-    hasCredential: certifications.map((item) => ({
+    hasCredential: certificados.map((c) => ({
       "@type": "EducationalOccupationalCredential",
-      name: item.title,
-      recognizedBy: { "@type": "Organization", name: item.issuer },
+      name: c.titulo,
+      recognizedBy: { "@type": "Organization", name: c.emisor },
     })),
-    knowsAbout: skills.flatMap((group) => group.items),
+    knowsAbout: oficio.flatMap((g) => g.items.map((i) => i.label)),
     sameAs: [
-      profile.linkedin,
-      profile.behance,
-      profile.dribbble,
-      profile.instagram,
+      perfil.linkedin,
+      perfil.behance,
+      perfil.dribbble,
+      perfil.instagram,
     ].filter(Boolean),
   };
 }
@@ -89,7 +85,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es">
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className="antialiased">
         {children}
         <script
           type="application/ld+json"

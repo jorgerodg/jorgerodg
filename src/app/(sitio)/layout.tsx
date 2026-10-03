@@ -1,8 +1,7 @@
-import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./v3.css";
 
-/** La tipografía de esta versión. Solo se carga en esta rama de rutas.
+/** La tipografía del sitio. El CV (`/cv`) carga la suya aparte.
  *  El nombre de la variable es genérico a propósito: cambiar de familia es
  *  tocar solo este bloque, no el CSS ni los componentes. */
 const tipografia = Outfit({
@@ -11,11 +10,7 @@ const tipografia = Outfit({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  robots: { index: false, follow: false },
-};
-
-export default function V3Layout({
+export default function SitioLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (

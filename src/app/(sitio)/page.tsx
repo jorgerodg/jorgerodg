@@ -8,7 +8,7 @@ import Portada from "@/components/v3/Portada";
 import Trabajo from "@/components/v3/Trabajo";
 import Trayectoria from "@/components/v3/Trayectoria";
 
-export default function V3Page() {
+export default function InicioPage() {
   return (
     <>
       <SkipLink />
