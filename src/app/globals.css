@@ -1,0 +1,216 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #ffffff;
+  --surface: #fafafa;
+  --fg: #111111;
+  --muted: #6e6e6e;
+  --faint: #767676;
+  --line: #e4e4e4;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0c0c0c;
+    --surface: #141414;
+    --fg: #f2f2f2;
+    --muted: #a0a0a0;
+    --faint: #8a8a8a;
+    --line: #272727;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0c0c0c;
+  --surface: #141414;
+  --fg: #f2f2f2;
+  --muted: #a0a0a0;
+  --faint: #8a8a8a;
+  --line: #272727;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-serif), ui-serif, Georgia, serif;
+
+  /* Versión C — Audaz. Valores tomados de las variables del archivo de Figma,
+     no de los fallbacks de la plantilla generada, que eran de Tailwind. */
+  --color-c-bg: #0c0c0c;
+  --color-c-surface: #141414;
+  --color-c-fg: #f2f2f2;
+  --color-c-muted: #a0a0a0;
+  --color-c-faint: #8a8a8a;
+  --color-c-line: #272727;
+  --color-c-accent: #ff5b14;
+  --color-c-on-accent: #0c0c0c;
+  --color-c-on-hero: #ffffff;
+  --color-c-shade: #160804;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Subrayados con las métricas de la propia fuente, no las que decida el
+   navegador. :where() mantiene especificidad 0 para que las utilidades ganen. */
+:where(a) {
+  text-underline-position: from-font;
+  text-decoration-thickness: from-font;
+  text-decoration-skip-ink: auto;
+}
+
+::selection {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Contorno de 1px para imágenes: negro puro en claro, blanco puro en oscuro.
+   Nunca un neutro teñido: recogería la superficie de debajo y se leería como
+   suciedad en el borde. */
+.media-outline {
+  outline: 1px solid oklch(0 0 0 / 0.1);
+  outline-offset: -1px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .media-outline {
+    outline-color: oklch(1 0 0 / 0.1);
+  }
+}
+
+:root[data-theme="dark"] .media-outline {
+  outline-color: oklch(1 0 0 / 0.1);
+}
+
+/* Elevación de superficies flotantes: sombra en capas, no un borde que
+   finge profundidad. El filete de 1px sí es estructura: define el canto. */
+.elevated {
+  box-shadow:
+    0 0 0 1px oklch(0 0 0 / 0.08),
+    0 1px 2px oklch(0 0 0 / 0.04),
+    0 8px 16px -4px oklch(0 0 0 / 0.08),
+    0 20px 32px -12px oklch(0 0 0 / 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .elevated {
+    box-shadow:
+      0 0 0 1px oklch(1 0 0 / 0.1),
+      0 1px 2px oklch(0 0 0 / 0.4),
+      0 8px 16px -4px oklch(0 0 0 / 0.5),
+      0 20px 32px -12px oklch(0 0 0 / 0.6);
+  }
+}
+
+:root[data-theme="dark"] .elevated {
+  box-shadow:
+    0 0 0 1px oklch(1 0 0 / 0.1),
+    0 1px 2px oklch(0 0 0 / 0.4),
+    0 8px 16px -4px oklch(0 0 0 / 0.5),
+    0 20px 32px -12px oklch(0 0 0 / 0.6);
+}
+
+/* La curva del CV, reutilizada como firma del sitio. */
+.signature-curve {
+  filter: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .signature-curve {
+    filter: invert(1);
+  }
+}
+
+:root[data-theme="dark"] .signature-curve {
+  filter: invert(1);
+}
+
+/* Revelado al entrar en pantalla, guiado por scroll y sin JavaScript.
+   Doble salvaguarda: si el navegador no soporta `view()` o el lector pidió
+   menos movimiento, no se declara ninguna animación y el contenido sale
+   visible. Nunca se queda nada en opacity:0 esperando a un observador. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    @keyframes reveal-in {
+      from {
+        opacity: 0;
+        translate: 0 16px;
+      }
+      to {
+        opacity: 1;
+        translate: 0 0;
+      }
+    }
+
+    /* El rango vive entero dentro de la fase `entry`, nunca en `cover`.
+       Un elemento al final del documento jamás llega a cruzar la pantalla
+       completa, así que un rango con `cover` no termina nunca y lo deja
+       atenuado para siempre. Con `entry` basta con que acabe de asomar. */
+    .reveal {
+      animation: reveal-in linear both;
+      animation-timeline: view();
+      animation-range: entry 5% entry 55%;
+    }
+
+    /* Escalonado: cada paso arranca más tarde dentro del mismo recorrido,
+       en vez de usar un retardo temporal. */
+    .reveal-2 {
+      animation-range: entry 20% entry 70%;
+    }
+
+    .reveal-3 {
+      animation-range: entry 35% entry 85%;
+    }
+  }
+}
+
+/* Barra de progreso de lectura. Va fuera del guard de movimiento reducido:
+   no es decoración ni parallax, sigue 1:1 el scroll del propio lector y
+   quitarla eliminaría información. */
+@supports (animation-timeline: scroll()) {
+  @keyframes progress-grow {
+    from {
+      scale: 0 1;
+    }
+    to {
+      scale: 1 1;
+    }
+  }
+
+  .scroll-progress {
+    transform-origin: 0 50%;
+    animation: progress-grow linear both;
+    animation-timeline: scroll(root block);
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}

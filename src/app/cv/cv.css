@@ -1,0 +1,101 @@
+/* Hoja para imprimir. En papel manda el claro: el oscuro del sitio gasta
+   tinta, se imprime sucio y resta legibilidad. Se conserva la tipografía y
+   el naranja de la marca, pero solo como estructura. */
+@page {
+  size: A4;
+  margin: 14mm 14mm 12mm;
+}
+
+.cv-root {
+  --tinta: #141414;
+  --suave: #5a5a5a;
+  --tenue: #8a8a8a;
+  --filete: #dcdcdc;
+  --acento: #d94a0c; /* el naranja de pantalla, bajado para que no sature en papel */
+
+  font-family: var(--font-cv), ui-sans-serif, system-ui, sans-serif;
+  color: var(--tinta);
+  background: #fff;
+  font-size: 8.6pt;
+  line-height: 1.45;
+}
+
+.cv-hoja {
+  max-width: 182mm;
+  margin: 0 auto;
+  padding: 14mm 0;
+}
+
+.cv-nombre {
+  font-size: 25pt;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.cv-puesto {
+  font-size: 11pt;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--acento);
+}
+
+.cv-seccion {
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--acento);
+}
+
+.cv-empresa {
+  font-size: 11pt;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.cv-cargo {
+  font-size: 8.8pt;
+  font-weight: 600;
+}
+
+.cv-meta {
+  font-size: 7.6pt;
+  color: var(--tenue);
+}
+
+.cv-suave {
+  color: var(--suave);
+}
+
+.cv-filete {
+  border-top: 0.5pt solid var(--filete);
+}
+
+.cv-chip {
+  border: 0.5pt solid var(--filete);
+  border-radius: 999px;
+  padding: 1.6mm 3mm;
+  font-size: 7.6pt;
+  font-weight: 600;
+}
+
+/* Los identificadores de certificado son cadenas largas sin espacios. */
+.cv-romper {
+  overflow-wrap: break-word;
+}
+
+/* Nada de cortes a mitad de un empleo o de un bloque de estudios. */
+.cv-junto {
+  break-inside: avoid;
+}
+
+@media print {
+  .cv-hoja {
+    padding: 0;
+    max-width: none;
+  }
+  .cv-no-imprimir {
+    display: none;
+  }
+}

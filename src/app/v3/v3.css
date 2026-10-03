@@ -1,0 +1,253 @@
+/* Escala tipográfica de la Versión C.
+   El interletrado del diseño viene en porcentaje (p. ej. -2.5 % en H2), así que
+   va en `em` y no en px: así se mantiene al escalar los tamaños con clamp(). */
+/* La versión audaz es oscura siempre, pero el `body` sigue el tema del
+   sistema: en claro quedaba blanco y asomaba al hacer overscroll o rebote.
+   El `:has()` lo deja inerte en cualquier otra página. */
+body:has(.v3-root) {
+  background: var(--color-c-bg);
+}
+
+.v3-root {
+  font-family: var(--font-v3), ui-sans-serif, system-ui, sans-serif;
+}
+
+.v3-display {
+  font-size: clamp(3rem, 8.5vw, 7rem);
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+}
+
+.v3-contacto {
+  font-size: clamp(2.25rem, 6.4vw, 5.5rem);
+  /* A tamaño grande son 2 líneas y el 1 del diseño funciona. En móvil baja a
+     36px y pasa a 3 líneas: los descendentes de «producto que» rozaban los
+     ascendentes de abajo. Se abre lo justo, sin aflojar el titular. */
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+.v3-h2 {
+  font-size: clamp(2rem, 4.2vw, 3.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+}
+
+.v3-lead {
+  font-size: clamp(1.25rem, 2.1vw, 1.75rem);
+  /* El diseño marca 1.3, pero este escalón envuelve a 3 y 4 líneas en el hero
+     y en el perfil, y ahí 1.3 pega las líneas. 1.4 es el mínimo legible. */
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+}
+
+/* A partir de lg el titular vuelve a 2 líneas y recupera el 1 del diseño. */
+@media (min-width: 1024px) {
+  .v3-contacto {
+    line-height: 1;
+  }
+}
+
+.v3-wordmark {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.v3-title {
+  font-size: 1.375rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+.v3-eyebrow {
+  font-size: 1.125rem;
+  line-height: 1.4;
+  letter-spacing: -0.005em;
+  font-weight: 600;
+}
+
+.v3-nav {
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.v3-label {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.v3-body {
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.v3-body-sm {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/* Cadenas largas sin espacios (los ID de certificado). Hoy caben por los
+   pelos; con uno más largo se saldrían del contenedor. */
+.v3-romper {
+  overflow-wrap: break-word;
+}
+
+/* Carrusel de marcas: dos copias de la lista desplazándose en bucle.
+   Se detiene por completo si el lector pidió menos movimiento. */
+@media (prefers-reduced-motion: no-preference) {
+  .v3-marquee-track {
+    animation: v3-marquee 42s linear infinite;
+  }
+
+  /* La pausa va tras `hover: hover`: en táctil un toque dejaría el carrusel
+     detenido para siempre, porque el :hover se queda pegado. El foco sí
+     pausa en cualquier dispositivo, que es lo que necesita el teclado. */
+  @media (hover: hover) {
+    .v3-marquee:hover .v3-marquee-track {
+      animation-play-state: paused;
+    }
+  }
+
+  .v3-marquee:focus-within .v3-marquee-track {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes v3-marquee {
+  from {
+    translate: 0 0;
+  }
+  to {
+    translate: -50% 0;
+  }
+}
+
+/* ----------------------------------------------------------------------
+   Efectos guiados por scroll. Todo en CSS, sin JavaScript.
+   Doble salvaguarda en el revelado: si el navegador no soporta `view()` o
+   el lector pidió menos movimiento, no se declara animación y el contenido
+   sale visible. Nunca se queda nada esperando a un observador.
+   ---------------------------------------------------------------------- */
+
+/* Las líneas de tiempo se declaran en las secciones y se leen desde la barra
+   fija, que no es su descendiente: `timeline-scope` es lo que lo permite. */
+.v3-root {
+  timeline-scope: --v3-hero, --v3-trabajo, --v3-trayectoria, --v3-oficio;
+}
+
+.v3-root #inicio {
+  view-timeline-name: --v3-hero;
+}
+
+.v3-root #trabajo {
+  view-timeline-name: --v3-trabajo;
+}
+
+.v3-root #trayectoria {
+  view-timeline-name: --v3-trayectoria;
+}
+
+.v3-root #oficio {
+  view-timeline-name: --v3-oficio;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    @keyframes v3-revelar {
+      from {
+        opacity: 0;
+        translate: 0 18px;
+      }
+      to {
+        opacity: 1;
+        translate: 0 0;
+      }
+    }
+
+    /* El rango vive entero dentro de `entry`. Con `cover` un elemento al final
+       del documento nunca termina su animación y se queda atenuado para
+       siempre: ya pasó en la versión editorial. */
+    .v3-revelar {
+      animation: v3-revelar linear both;
+      animation-timeline: view();
+      animation-range: entry 4% entry 52%;
+    }
+
+    .v3-revelar-2 {
+      animation-range: entry 16% entry 64%;
+    }
+
+    .v3-revelar-3 {
+      animation-range: entry 28% entry 76%;
+    }
+  }
+}
+
+/* La barra fija entra cuando el hero termina de salir. Fuera del guard de
+   movimiento reducido: no es decoración, es la navegación de la página. */
+@supports (animation-timeline: view()) {
+  @keyframes v3-barra-entra {
+    from {
+      opacity: 0;
+      translate: 0 -100%;
+    }
+    to {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+
+  .v3-barra {
+    animation: v3-barra-entra linear both;
+    animation-timeline: --v3-hero;
+    animation-range: exit 10% exit 95%;
+  }
+
+  @keyframes v3-seccion-activa {
+    0%,
+    100% {
+      color: var(--color-c-muted);
+    }
+    3%,
+    97% {
+      color: var(--color-c-accent);
+    }
+  }
+
+  .v3-barra [data-seccion="trabajo"] {
+    animation: v3-seccion-activa linear both;
+    animation-timeline: --v3-trabajo;
+    animation-range: cover 30% cover 70%;
+  }
+
+  .v3-barra [data-seccion="trayectoria"] {
+    animation: v3-seccion-activa linear both;
+    animation-timeline: --v3-trayectoria;
+    animation-range: cover 30% cover 70%;
+  }
+
+  .v3-barra [data-seccion="oficio"] {
+    animation: v3-seccion-activa linear both;
+    animation-timeline: --v3-oficio;
+    animation-range: cover 30% cover 70%;
+  }
+}
+
+/* Sin soporte de scroll-driven la barra no tiene cómo aparecer, así que se
+   queda fuera por completo en vez de taparlo todo. */
+@supports not (animation-timeline: view()) {
+  .v3-barra {
+    display: none;
+  }
+}
