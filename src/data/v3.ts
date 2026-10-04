@@ -160,7 +160,13 @@ export const trayectoria: {
   {
     rango: "2021 – Presente", empresa: "Banco del Pacífico", lugar: "Guayaquil, Ecuador",
     cargos: [
-      { titulo: "Lead UX Designer", periodo: "Sep 2025 – Presente", intro: "Lidero la transformación de la experiencia del cliente en el banco, impulsando innovación y consistencia en todos los canales." },
+      { titulo: "Lead UX Designer", periodo: "Sep 2025 – Presente",
+        intro: "Lidero la transformación de la experiencia del cliente en el banco, impulsando innovación y consistencia en todos los canales. Estoy a cargo de la experiencia de usuario en:",
+        vinetas: [
+          "Banca Personas.",
+          "Banca Empresas.",
+          "Canales físicos: Mi Banco, kioscos de autoservicio y cajeros automáticos.",
+        ] },
       { titulo: "UI/UX Designer", periodo: "May 2021 – Sep 2025",
         intro: "Responsable de la interfaz de usuario de los productos y servicios del banco, en colaboración con desarrolladores y product owners, para que sea fácil de usar y brinde una experiencia positiva.",
         vinetas: [
@@ -205,8 +211,10 @@ export type Herramienta = { label: string; icono?: string };
 
 export const oficio: { n: string; titulo: string; items: Herramienta[] }[] = [
   { n: "#01", titulo: "Investigación", items: [
-    { label: "UXtweak" }, { label: "Lyssna" },
-    { label: "Optimal Workshop" }, { label: "Maze" },
+    { label: "UXtweak", icono: "/v3/uxtweak.svg" },
+    { label: "Lyssna", icono: "/v3/lyssna.svg" },
+    { label: "Optimal Workshop", icono: "/v3/optimal-workshop.svg" },
+    { label: "Maze", icono: "/v3/maze.svg" },
   ] },
   { n: "#02", titulo: "Diseño de interfaz", items: [
     { label: "Figma", icono: "/v3/figma.svg" },
