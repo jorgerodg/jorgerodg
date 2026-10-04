@@ -20,9 +20,10 @@ export const perfil = {
   resumen:
     "Llevo más de diez años en diseño. Hoy lidero el equipo de UX de Banco del Pacífico.",
   puesto: "Lead UX Designer en Banco del Pacífico",
+  ciudad: "Guayaquil, Ecuador",
   email: "jorgero@me.com",
   // Celular en formato internacional, sin "+" ni espacios, como lo pide wa.me:
-  // el 0998878644 local pierde el 0 inicial y lleva delante el prefijo de país.
+  // el 0998878644 local pierde el 0 inicial y lleva delante el 593 de Ecuador.
   whatsapp: "593998878644",
   cv: "/cv-jorge-rodriguez.pdf",
   retrato: "/v3/retrato-audaz.jpg",
@@ -154,10 +155,10 @@ export type Cargo = {
 };
 
 export const trayectoria: {
-  rango: string; empresa: string; lugar?: string; cargos: Cargo[]; nota?: string;
+  rango: string; empresa: string; lugar: string; cargos: Cargo[]; nota?: string;
 }[] = [
   {
-    rango: "2021 – Presente", empresa: "Banco del Pacífico",
+    rango: "2021 – Presente", empresa: "Banco del Pacífico", lugar: "Ecuador",
     cargos: [
       { titulo: "Lead UX Designer", periodo: "Sep 2025 – Presente",
         intro: "Lidero la transformación de la experiencia del cliente en el banco, impulsando innovación y consistencia en todos los canales. Estoy a cargo de la experiencia de usuario en:",
@@ -175,7 +176,7 @@ export const trayectoria: {
     ],
   },
   {
-    rango: "2016–2021", empresa: "Grupo Link",
+    rango: "2016–2021", empresa: "Grupo Link", lugar: "Ecuador",
     cargos: [
       { titulo: "Lead UI Designer", periodo: "Dic 2018 – May 2021",
         vinetas: [

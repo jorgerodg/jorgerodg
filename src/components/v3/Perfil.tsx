@@ -38,7 +38,12 @@ export default function Perfil() {
             ))}
           </div>
           <div className="flex flex-wrap items-center justify-between gap-6">
-            <p className="v3-label">{perfil.puesto}</p>
+            <p className="v3-label">
+              {perfil.puesto}
+              <span className="mt-1 block font-normal text-c-muted">
+                {perfil.ciudad}
+              </span>
+            </p>
             <Boton href="#trabajo" tono="acento">
               Ver trabajo
             </Boton>

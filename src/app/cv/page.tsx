@@ -25,6 +25,7 @@ export default function CvPage() {
       // Se muestra la dirección sin protocolo ni «www.», como se leería en papel.
       (url) => ({ texto: url.replace(/^https?:\/\/(www\.)?/, ""), href: url }),
     ),
+    { texto: perfil.ciudad },
   ];
 
   return (
@@ -83,9 +84,7 @@ export default function CvPage() {
               <div>
                 <h3 className="cv-empresa">
                   {t.empresa}
-                  {t.lugar && (
-                    <span className="cv-meta ms-2 font-normal">{t.lugar}</span>
-                  )}
+                  <span className="cv-meta ms-2 font-normal">{t.lugar}</span>
                 </h3>
                 <div className="mt-1.5 flex flex-col gap-2">
                   {t.cargos.map((c) => (
