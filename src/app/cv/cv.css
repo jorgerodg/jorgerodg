@@ -64,6 +64,15 @@
   color: var(--tenue);
 }
 
+/* Datos de contacto pulsables. Subrayado fino y un tono más oscuro que el
+   resto de la línea: en papel se lee como enlace sin gritar. */
+.cv-enlace {
+  color: var(--suave);
+  text-decoration: underline;
+  text-decoration-thickness: 0.4pt;
+  text-underline-offset: 1.6pt;
+}
+
 .cv-suave {
   color: var(--suave);
 }

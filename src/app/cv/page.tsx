@@ -14,12 +14,16 @@ import {
  * a exportar el PDF.
  */
 export default function CvPage() {
-  const contacto = [
-    perfil.email,
-    `wa.me/${perfil.whatsapp}`,
-    "linkedin.com/in/jorgerodg",
-    "behance.net/jorgero_dg",
-    perfil.ciudad,
+  // Con `href`, el dato sale como enlace y el PDF lo conserva pulsable.
+  const contacto: { texto: string; href?: string }[] = [
+    { texto: perfil.email, href: `mailto:${perfil.email}` },
+    {
+      texto: `wa.me/${perfil.whatsapp}`,
+      href: `https://wa.me/${perfil.whatsapp}`,
+    },
+    { texto: "linkedin.com/in/jorgerodg", href: perfil.linkedin },
+    { texto: "behance.net/jorgero_dg", href: perfil.behance },
+    { texto: perfil.ciudad },
   ];
 
   return (
@@ -30,22 +34,29 @@ export default function CvPage() {
           <p className="cv-puesto mt-1">{perfil.puesto}</p>
           <ul className="cv-meta mt-3 flex flex-wrap gap-x-4 gap-y-1">
             {contacto.map((c) => (
-              <li key={c}>{c}</li>
+              <li key={c.texto}>
+                {c.href ? (
+                  <a href={c.href} className="cv-enlace">
+                    {c.texto}
+                  </a>
+                ) : (
+                  c.texto
+                )}
+              </li>
             ))}
           </ul>
         </div>
-        {/* El recuadro y el retrato tienen casi la misma proporción, así que
-            `object-cover` por sí solo no recorta: salía la figura entera y
-            diminuta. Se amplía sobre la cara con el origen en la cabeza. */}
-        <div className="h-[34mm] w-[26mm] shrink-0 overflow-hidden rounded-[2mm]">
-          <Image
-            src={perfil.retrato}
-            alt=""
-            width={300}
-            height={400}
-            className="h-full w-full origin-[64%_13%] scale-[3.1] object-cover"
-          />
-        </div>
+        {/* El retrato ya viene recortado a cabeza y hombros con la proporción
+            de la caja. Va sin optimizar para que el PDF incruste el archivo
+            tal cual y no una versión reducida. */}
+        <Image
+          src={perfil.retratoCv}
+          alt=""
+          width={332}
+          height={434}
+          unoptimized
+          className="h-[34mm] w-[26mm] shrink-0 rounded-[2mm] object-cover"
+        />
       </header>
 
       <section className="mt-7">
