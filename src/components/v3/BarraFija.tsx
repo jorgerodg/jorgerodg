@@ -4,7 +4,7 @@ import { perfil } from "@/data/v3";
 const enlaces = [
   { href: "#trabajo", label: "Trabajo", sec: "trabajo" },
   { href: "#trayectoria", label: "Trayectoria", sec: "trayectoria" },
-  { href: "#oficio", label: "Oficio", sec: "oficio" },
+  { href: "#oficio", label: "Herramientas", sec: "oficio" },
 ];
 
 /**

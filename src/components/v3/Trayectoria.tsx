@@ -7,7 +7,7 @@ export default function Trayectoria() {
       <div className={`${CONTENEDOR} flex flex-col gap-12 lg:flex-row lg:justify-between lg:gap-16`}>
         <Cabecera
           eyebrow="Trayectoria"
-          titulo="Más de diez años diseñando producto"
+          titulo="Más de diez años en diseño"
           className="lg:w-[420px] lg:shrink-0"
         />
         <ol className="lg:min-w-0 lg:flex-1">

@@ -16,7 +16,7 @@ export const perfil = {
   titularB: "de producto",
   frase: "Diseño productos digitales que la gente entiende a la primera.",
   resumen:
-    "Llevo más de diez años en producto digital, hoy al frente del equipo de UX de Banco del Pacífico.",
+    "Llevo más de diez años en diseño. Hoy lidero el equipo de UX de Banco del Pacífico.",
   puesto: "Lead UX Designer en Banco del Pacífico",
   ciudad: "Guayaquil, Ecuador",
   email: "jorgero@me.com",
@@ -43,18 +43,17 @@ export const marcas = [
 ];
 
 export const sobreMi = {
-  eyebrow: "Detrás del diseño",
-  titulo: "Donde una decisión de diseño empieza a tener consecuencias",
-  lead: "Trabajo donde se cruzan la investigación, el sistema de diseño y el negocio: el punto en que el diseño deja de ser estética.",
+  eyebrow: "Sobre mí",
+  titulo: "Diseño pensando en las personas y en el negocio",
+  lead: "Uno investigación, sistemas de diseño y objetivos de negocio para que cada producto sea claro y fácil de usar.",
   especialidades: [
     "Diseño de experiencia de usuario (UX)",
     "Diseño de servicios",
     "Business Banking y banca digital",
   ],
   parrafos: [
-    "Soy diseñador gráfico graduado de la Universidad Abierta Interamericana (Buenos Aires, Argentina) y actualmente me desempeño como Lead UX Designer en el Banco del Pacífico. Mi experiencia se centra en diseñar interfaces de usuario funcionales y atractivas, poniendo al usuario en el centro de cada decisión de diseño.",
-    "Cuento con certificación en Design Thinking y una sólida formación en diseño de interfaces (UI) y experiencia de usuario (UX), adquirida a través de diversos cursos especializados. Esto me ha permitido abordar proyectos con un enfoque estratégico, creativo y orientado a resultados.",
-    "Mi objetivo profesional es evolucionar constantemente junto con la industria, adaptándome a las necesidades del entorno empresarial y buscando nuevas formas de aportar valor a los equipos y proyectos en los que participo. Creo firmemente en el poder del diseño como herramienta para transformar experiencias y generar impacto positivo.",
+    "Soy diseñador gráfico por la Universidad Abierta Interamericana (Buenos Aires) y Lead UX Designer en Banco del Pacífico. Diseño interfaces funcionales y cuidadas, con el usuario en el centro de cada decisión.",
+    "Me formé en diseño de interfaz, experiencia de usuario y Design Thinking, y sigo aprendiendo a medida que cambia la industria. Me interesa el diseño como una forma de mejorar la experiencia de las personas y de aportar valor a los equipos con los que trabajo.",
   ],
 };
 
@@ -157,10 +156,10 @@ export const trayectoria: {
     cargos: [
       { titulo: "Lead UX Designer", periodo: "Sep 2025 – Presente", intro: "Lidero la transformación de la experiencia del cliente en el banco, impulsando innovación y consistencia en todos los canales." },
       { titulo: "UI/UX Designer", periodo: "May 2021 – Sep 2025",
-        intro: "Responsable de la interfaz de usuario de los productos y servicios del banco, en colaboración con desarrolladores y PO, para que sea fácil de usar y brinde una experiencia positiva.",
+        intro: "Responsable de la interfaz de usuario de los productos y servicios del banco, en colaboración con desarrolladores y product owners, para que sea fácil de usar y brinde una experiencia positiva.",
         vinetas: [
-          "Implementar los principios de interfaz centrados en el usuario para mejorar la experiencia del cliente.",
-          "Explorar el proceso creativo de UX en sus cuatro etapas: detección, identificación, desarrollo y entrega.",
+          "Apliqué principios de diseño centrado en el usuario para mejorar la experiencia del cliente.",
+          "Trabajé el proceso de UX completo: descubrimiento, definición, desarrollo y entrega.",
         ] },
     ],
   },
@@ -169,10 +168,10 @@ export const trayectoria: {
     cargos: [
       { titulo: "Lead UI Designer", periodo: "Dic 2018 – May 2021",
         vinetas: [
-          "Liderar y motivar al equipo de diseño UI.",
-          "Evolucionar la práctica de diseño centrado en el usuario.",
-          "Velar por la consistencia de la experiencia entre productos.",
-          "Trabajar con equipos interdisciplinarios de producto para una gestión iterativa e incremental.",
+          "Lideré al equipo de diseño de interfaz.",
+          "Impulsé la práctica de diseño centrado en el usuario.",
+          "Cuidé la consistencia de la experiencia entre productos.",
+          "Trabajé con equipos interdisciplinarios en ciclos iterativos.",
         ] },
       { titulo: "UI Designer", periodo: "Nov 2016 – Dic 2018" },
     ],

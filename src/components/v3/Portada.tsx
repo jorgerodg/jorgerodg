@@ -5,7 +5,7 @@ import { marcas, perfil, servicios } from "@/data/v3";
 const enlaces = [
   { href: "#trabajo", label: "Trabajo" },
   { href: "#trayectoria", label: "Trayectoria" },
-  { href: "#oficio", label: "Oficio" },
+  { href: "#oficio", label: "Herramientas" },
 ];
 
 export default function Portada() {
@@ -15,22 +15,29 @@ export default function Portada() {
           alto y servicios al pie, como en el diseño. */}
       <div className="relative flex min-h-[620px] flex-col justify-between gap-16 overflow-hidden rounded-b-[48px] bg-c-accent px-6 pt-8 pb-14 sm:px-10 lg:min-h-[820px] lg:gap-0 lg:px-16">
         {/* El retrato va en multiply sobre el naranja: es lo que tiñe la foto.
-            En escritorio se reproduce su encuadre exacto: el diseño lo sube 480px
-            sobre una imagen de 2000 de alto, o sea un 24 % de su propia altura.
-            Va como translate y no como `top` en píxeles: con un valor fijo, a
-            1024px la imagen es menor y el recorte se comía la cabeza.
-            Por debajo de lg se le da más alto que al contenedor para que el
-            recorte amplíe al sujeto en vez de encajarlo entero y diminuto. */}
+            Solo se muestra desde lg. En móvil y tablet tapaba el texto y el
+            banner funciona mejor limpio; al ir sin `priority` y oculto, esos
+            dispositivos ni siquiera lo descargan.
+            Se reproduce el encuadre exacto del diseño: lo sube 480px sobre una
+            imagen de 2000 de alto, o sea un 24 % de su propia altura. Va como
+            translate y no como `top` en píxeles: con un valor fijo, a 1024px
+            la imagen es menor y el recorte se comía la cabeza. */}
         <Image
           src={perfil.retrato}
           alt={`Retrato de ${perfil.nombre}`}
           width={1500}
           height={2000}
-          priority
-          sizes="(max-width: 1024px) 100vw, 1500px"
-          className="pointer-events-none absolute top-0 left-[-25%] h-[190%] w-[150%] max-w-none object-cover object-[70%_12%] mix-blend-multiply sm:left-[-10%] sm:h-[150%] sm:w-[120%] sm:object-[65%_14%] lg:top-0 lg:left-0 lg:h-auto lg:w-[104.1667%] lg:-translate-y-[24%] lg:object-fill lg:object-center"
+          sizes="1500px"
+          className="pointer-events-none absolute top-0 left-0 hidden h-auto w-[104.1667%] max-w-none -translate-y-[24%] mix-blend-multiply lg:block"
         />
 
+        {/* Sin la foto, el texto blanco pequeño caía sobre naranja puro y se
+            quedaba en 3,1:1. Este velo repone, solo por debajo de lg, el
+            oscurecido que aportaba el retrato en multiply. */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-c-shade/[0.27] lg:hidden"
+        />
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"

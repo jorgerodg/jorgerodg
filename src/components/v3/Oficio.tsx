@@ -6,7 +6,7 @@ export default function Oficio() {
   return (
     <section id="oficio" className={`scroll-mt-24 pb-24 lg:pb-32 ${SECCION}`}>
       <div className={`${CONTENEDOR} flex flex-col gap-12`}>
-        <Cabecera eyebrow="Oficio" titulo="Herramientas y método" />
+        <Cabecera eyebrow="Herramientas" titulo="Con qué y cómo trabajo" />
         <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {oficio.map((g) => (
             <li
