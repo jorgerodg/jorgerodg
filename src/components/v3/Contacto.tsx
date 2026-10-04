@@ -44,7 +44,7 @@ export default function Contacto() {
                 </li>
               </ul>
               <p className="v3-body-sm">
-                © {año} {perfil.nombre} · {perfil.ciudad}
+                © {año} {perfil.nombre}
               </p>
             </div>
           </div>

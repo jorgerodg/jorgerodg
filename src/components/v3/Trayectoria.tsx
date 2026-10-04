@@ -20,7 +20,11 @@ export default function Trayectoria() {
                 <div className="flex min-w-0 flex-col gap-3.5">
                   <h3 className="flex flex-wrap items-baseline gap-x-3.5 gap-y-1">
                     <span className="v3-lead">{t.empresa}</span>
-                    <span className="v3-body-sm text-c-muted">{t.lugar}</span>
+                    {t.lugar && (
+                      <span className="v3-body-sm text-c-muted">
+                        {t.lugar}
+                      </span>
+                    )}
                   </h3>
                   <div className="flex flex-col gap-[18px]">
                     {t.cargos.map((c) => (

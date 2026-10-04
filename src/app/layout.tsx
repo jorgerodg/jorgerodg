@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: {
     type: "profile",
-    locale: "es_EC",
+    locale: "es_LA",
     url: "/",
     siteName: perfil.nombre,
     title,
@@ -45,7 +45,6 @@ export const metadata: Metadata = {
 
 /** Datos estructurados: permiten a Google mostrar puesto, empresa y perfiles. */
 function personJsonLd() {
-  const [ciudad] = perfil.ciudad.split(",");
   return {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -55,11 +54,6 @@ function personJsonLd() {
     url: SITIO,
     image: new URL(perfil.retrato, SITIO).toString(),
     email: `mailto:${perfil.email}`,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: ciudad,
-      addressCountry: "EC",
-    },
     worksFor: { "@type": "Organization", name: trayectoria[0].empresa },
     alumniOf: educacion.map((e) => ({
       "@type": "EducationalOrganization",
