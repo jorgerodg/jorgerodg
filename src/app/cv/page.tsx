@@ -138,7 +138,7 @@ export default function CvPage() {
 
       <section className="mt-6">
         <h2 className="cv-seccion">Herramientas y método</h2>
-        <div className="cv-filete mt-2 grid grid-cols-4 gap-x-5 pt-3">
+        <div className="cv-filete mt-2 grid grid-cols-5 gap-x-4 pt-3">
           {oficio.map((g) => (
             <div key={g.titulo} className="cv-junto">
               <h3 className="cv-cargo">{g.titulo}</h3>

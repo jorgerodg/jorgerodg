@@ -198,24 +198,28 @@ export const trayectoria: {
 export type Herramienta = { label: string; icono?: string };
 
 export const oficio: { n: string; titulo: string; items: Herramienta[] }[] = [
-  { n: "#01", titulo: "Diseño de interfaz", items: [
+  { n: "#01", titulo: "Investigación", items: [
+    { label: "UXtweak" }, { label: "Lyssna" },
+    { label: "Optimal Workshop" }, { label: "Maze" },
+  ] },
+  { n: "#02", titulo: "Diseño de interfaz", items: [
     { label: "Figma", icono: "/v3/figma.svg" },
     { label: "Sketch", icono: "/v3/sketch.svg" },
     { label: "Adobe XD", icono: "/v3/adobe-xd.svg" },
   ] },
-  { n: "#02", titulo: "Prototipado", items: [
+  { n: "#03", titulo: "Prototipado", items: [
     { label: "Figma", icono: "/v3/figma.svg" },
     { label: "Zeplin", icono: "/v3/zeplin.svg" },
     { label: "Marvel App", icono: "/v3/marvel.svg" },
   ] },
-  { n: "#03", titulo: "Producción y gráfica", items: [
+  { n: "#04", titulo: "Producción y gráfica", items: [
     { label: "Adobe InDesign", icono: "/v3/adobe-indesign.svg" },
     { label: "Adobe Photoshop", icono: "/v3/adobe-photoshop.svg" },
     { label: "Adobe Illustrator", icono: "/v3/adobe-illustrator.svg" },
     { label: "Adobe After Effects", icono: "/v3/adobe-after-effects.svg" },
     { label: "CorelDRAW", icono: "/v3/coreldraw.svg" },
   ] },
-  { n: "#04", titulo: "Método y colaboración", items: [
+  { n: "#05", titulo: "Método y colaboración", items: [
     { label: "Design thinking" }, { label: "Human-centered design" },
     { label: "Lean UX" }, { label: "Wireframing" }, { label: "Pruebas de usabilidad" },
   ] },
