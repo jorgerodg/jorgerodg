@@ -14,6 +14,8 @@ Presenta su perfil, casos seleccionados, trayectoria, herramientas y formación.
   saltar al contenido y respeto de la preferencia de movimiento reducido.
 - **Efectos de scroll en CSS**, sin JavaScript: revelado de secciones e
   indicador de la sección activa en el menú.
+- **Logo animado**, también en CSS: se construye al cargar y, terminada la
+  animación, queda idéntico al dibujo original.
 - **Una página por caso de estudio**, generada de forma estática.
 - **CV en PDF** generado a partir de los mismos datos que la web, con texto
   seleccionable y legible por sistemas de selección de personal.
@@ -37,7 +39,8 @@ Presenta su perfil, casos seleccionados, trayectoria, herramientas y formación.
 | `src/app/(sitio)/` | Portada (`/`) y páginas de caso (`/trabajo/<slug>`) |
 | `src/app/cv/` | Hoja de impresión de la que se exporta el CV |
 | `src/components/v3/` | Un componente por sección |
-| `public/v3/` | Logo, retratos, iconos e imágenes de los casos |
+| `src/components/v3/Marca.tsx` | Logo: el monograma va en línea para poder animar sus piezas |
+| `public/v3/` | Retratos, iconos e imágenes de los casos |
 | `src/app/icon.png`, `apple-icon.png` | Favicon e icono para móviles |
 
 El contenido está separado de la presentación: para actualizar un dato basta
