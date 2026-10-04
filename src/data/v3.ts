@@ -20,6 +20,8 @@ export const perfil = {
   puesto: "Lead UX Designer en Banco del Pacífico",
   ciudad: "Guayaquil, Ecuador",
   email: "jorgero@me.com",
+  // Celular en formato internacional, sin "+" ni espacios, como lo pide wa.me:
+  // el 0998878644 local pierde el 0 inicial y lleva delante el 593 de Ecuador.
   whatsapp: "593998878644",
   cv: "/cv-jorge-rodriguez.pdf",
   retrato: "/v3/retrato-audaz.jpg",
