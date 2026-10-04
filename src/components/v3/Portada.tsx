@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Boton, CONTENEDOR, Enlace } from "./ui";
+import Marca from "./Marca";
 import { marcas, perfil, servicios } from "@/data/v3";
 
 const enlaces = [
@@ -68,9 +69,7 @@ export default function Portada() {
             aria-label="Principal"
             className="flex flex-wrap items-center justify-between gap-x-6 gap-y-4 text-c-on-hero"
           >
-            <a href="#inicio" className="v3-wordmark order-1">
-              {perfil.nombre}
-            </a>
+            <Marca sobre="naranja" className="order-1" />
             {/* En móvil la marca y el botón comparten la primera fila y los
                 enlaces bajan a la suya; así ninguno se recorta. */}
             <div className="order-2 sm:order-3">

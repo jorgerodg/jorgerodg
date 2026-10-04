@@ -1,3 +1,4 @@
+import Marca from "./Marca";
 import { Boton, CONTENEDOR, Enlace } from "./ui";
 import { perfil } from "@/data/v3";
 
@@ -11,6 +12,11 @@ const enlaces = [
  * El menú del diseño vive dentro del hero y se va con el scroll, así que
  * marcar la sección activa allí no serviría de nada. Esta barra aparece
  * cuando el hero termina de salir y lleva el indicador.
+ *
+ * Es `fixed`, así que si su contenido no cabe no provoca scroll horizontal:
+ * simplemente se corta. Por eso en pantallas estrechas se reduce por pasos:
+ * primero se va el botón, luego el texto del logo y, por debajo de 360 px,
+ * el monograma, para que los tres enlaces quepan siempre.
  */
 export default function BarraFija() {
   return (
@@ -18,11 +24,9 @@ export default function BarraFija() {
       <div
         className={`${CONTENEDOR} flex items-center justify-between gap-6 px-6 py-3 sm:px-10 lg:px-16`}
       >
-        <a href="#inicio" className="v3-label whitespace-nowrap">
-          {perfil.nombre}
-        </a>
+        <Marca />
         <nav aria-label="Secciones">
-          <ul className="flex items-center gap-7">
+          <ul className="flex items-center gap-4 sm:gap-7">
             {enlaces.map((l) => (
               <li key={l.href}>
                 <Enlace
@@ -35,7 +39,7 @@ export default function BarraFija() {
             ))}
           </ul>
         </nav>
-        <div className="hidden sm:block">
+        <div className="hidden md:block">
           <Boton href={`mailto:${perfil.email}`} tono="acento">
             Escríbeme
           </Boton>

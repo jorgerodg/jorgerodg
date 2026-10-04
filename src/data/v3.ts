@@ -11,6 +11,8 @@ export const SITIO = dominio ? `https://${dominio}` : "http://localhost:3000";
 
 export const perfil = {
   nombre: "Jorge Rodríguez",
+  // Texto del logo: el nombre de usuario, como en la variante elegida en Figma.
+  marca: "jorgerodg",
   saludo: "Hola, soy Jorge",
   titularA: "Diseñador",
   titularB: "de producto",
@@ -25,6 +27,8 @@ export const perfil = {
   whatsapp: "593998878644",
   cv: "/cv-jorge-rodriguez.pdf",
   retrato: "/v3/retrato-audaz.jpg",
+  // Retrato del CV: recorte de cabeza y hombros, pensado para papel.
+  retratoCv: "/v3/retrato-cv.jpg",
   linkedin: "https://www.linkedin.com/in/jorgerodg",
   behance: "https://www.behance.net/jorgero_dg",
   dribbble: "https://dribbble.com/jorgero_dg",

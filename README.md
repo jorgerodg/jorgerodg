@@ -37,7 +37,8 @@ Presenta su perfil, casos seleccionados, trayectoria, herramientas y formación.
 | `src/app/(sitio)/` | Portada (`/`) y páginas de caso (`/trabajo/<slug>`) |
 | `src/app/cv/` | Hoja de impresión de la que se exporta el CV |
 | `src/components/v3/` | Un componente por sección |
-| `public/v3/` | Retrato, iconos e imágenes de los casos |
+| `public/v3/` | Logo, retratos, iconos e imágenes de los casos |
+| `src/app/icon.png`, `apple-icon.png` | Favicon e icono para móviles |
 
 El contenido está separado de la presentación: para actualizar un dato basta
 con editar `src/data/v3.ts`, y el cambio se refleja en la web y en el CV.
