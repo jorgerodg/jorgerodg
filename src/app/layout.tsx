@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import {
   certificados,
@@ -87,6 +88,9 @@ export default function RootLayout({
     <html lang="es">
       <body className="antialiased">
         {children}
+        {/* Visitas del sitio (Vercel Web Analytics). No usa cookies y solo
+            envía datos en el sitio publicado: en local no registra nada. */}
+        <Analytics />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd()) }}

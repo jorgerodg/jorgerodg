@@ -30,6 +30,7 @@ Presenta su perfil, casos seleccionados, trayectoria, herramientas y formación.
 | Interfaz | React 19 y TypeScript |
 | Estilos | Tailwind CSS 4 |
 | Publicación | Vercel, con despliegue automático desde `main` |
+| Analítica | Vercel Web Analytics, sin cookies |
 
 ## Estructura
 
