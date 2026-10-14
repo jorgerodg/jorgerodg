@@ -8,6 +8,10 @@ import { casos, casoPorSlug } from "@/data/v3";
 
 type Props = { params: Promise<{ slug: string }> };
 
+// Solo existen los casos de la lista. Cualquier otra dirección responde 404
+// sin ejecutar código en el servidor, en vez de intentar generar la página.
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return casos.map((c) => ({ slug: c.slug }));
 }

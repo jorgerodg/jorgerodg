@@ -91,9 +91,14 @@ export default function RootLayout({
         {/* Visitas del sitio (Vercel Web Analytics). No usa cookies y solo
             envía datos en el sitio publicado: en local no registra nada. */}
         <Analytics />
+        {/* `JSON.stringify` no neutraliza un «<»: si algún dato lo llevara,
+            podría cerrar la etiqueta y colar HTML. Se escapa siempre, como
+            indica la guía de JSON-LD de Next. */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd()) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personJsonLd()).replace(/</g, "\\u003c"),
+          }}
         />
       </body>
     </html>

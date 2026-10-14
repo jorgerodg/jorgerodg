@@ -21,6 +21,9 @@ Presenta su perfil, casos seleccionados, trayectoria, herramientas y formación.
   seleccionable y legible por sistemas de selección de personal.
 - **SEO**: metadatos Open Graph, datos estructurados (schema.org), sitemap y
   `robots.txt`.
+- **Cabeceras de seguridad**: política de contenido que solo admite recursos
+  propios, bloqueo de incrustación en otras páginas y permisos del navegador
+  (cámara, micrófono, ubicación) denegados.
 
 ## Tecnología
 
