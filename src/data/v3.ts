@@ -246,12 +246,12 @@ export const educacion = [
 
 export const certificados = [
   { fecha: "Ago 2025", titulo: "Service Design: Designing for Experience Over Time", emisor: "Udemy", id: "UC-76bca087-8a1b-47e5-a6f8-e4e7a9e95dca", href: "https://www.udemy.com/certificate/UC-76bca087-8a1b-47e5-a6f8-e4e7a9e95dca/" },
-  { fecha: "Jun 2025", titulo: "UX-PM Level 2", emisor: "UXalliance", id: "UX-PM2-4399-ECU25-0020" },
+  { fecha: "Jun 2025", titulo: "UX-PM Level 2", emisor: "UXalliance", id: "UX-PM2-4399-ECU25-0020", href: "https://ux-pm.com/profile/jorge-enriquerodriguez-cedeno-9c9e9c0d-0a45-4824-a96e-56dc12e86bea" },
   { fecha: "Abr 2024", titulo: "Diseño web con Figma: creación de interfaces eficaces", emisor: "Domestika", id: "3a98f0e6d05ff2fe1b26e7b1fa368486", href: "https://www.domestika.org/es/certificates/3a98f0e6d05ff2fe1b26e7b1fa368486" },
   { fecha: "Sep 2021", titulo: "Complete Figma Megacourse: UI/UX Design Beginner to Expert", emisor: "Udemy", id: "UC-e333c5ba-2de0-4368-a427-18eef4c44713", href: "https://www.udemy.com/certificate/UC-e333c5ba-2de0-4368-a427-18eef4c44713/" },
   { fecha: "Jul 2021", titulo: "Creación de UI Kits con Sketch", emisor: "Domestika", id: "c0defa3dfe505912ba1fbc4ce13ead93", href: "https://www.domestika.org/es/certificates/c0defa3dfe505912ba1fbc4ce13ead93" },
   { fecha: "Feb 2021", titulo: "Diseño de producto digital con Lean y UX", emisor: "Domestika", id: "7891baf5120eafbc3b281cd2fd2b8770", href: "https://www.domestika.org/es/certificates/7891baf5120eafbc3b281cd2fd2b8770" },
-  { fecha: "Feb 2020", titulo: "MIT Design Thinking: metodología para éxito en innovación", emisor: "Emeritus", id: "15052950" },
+  { fecha: "Feb 2020", titulo: "MIT Design Thinking: metodología para éxito en innovación", emisor: "Emeritus", id: "15052950", href: "https://certificates.emeritus.org/77500e94-eee4-4de8-baf7-865d957dbc83" },
   { fecha: "Sep 2019", titulo: "Introducción al Human-Centered Design", emisor: "Domestika", id: "6a3d6f0c9a2c543c493f038f0170538a", href: "https://www.domestika.org/es/certificates/6a3d6f0c9a2c543c493f038f0170538a" },
   { fecha: "Ago 2019", titulo: "Diseño de una aplicación móvil", emisor: "Domestika", id: "96089faf2e07675499b6655cddd585b3", href: "https://www.domestika.org/es/certificates/96089faf2e07675499b6655cddd585b3" },
   { fecha: "Dic 2015", titulo: "Diseña una App deliciosa", emisor: "Domestika", id: "f5a2dc4c8c71fd9035aa7ffb64415f45", href: "https://www.domestika.org/es/certificates/f5a2dc4c8c71fd9035aa7ffb64415f45" },
