@@ -88,19 +88,15 @@ export default function Portada() {
         </div>
 
         <div className={`relative ${CONTENEDOR}`}>
-          <div className="flex flex-col gap-10 text-c-on-hero lg:flex-row lg:items-start lg:justify-between lg:gap-16">
-            <div>
-              <p className="v3-lead">{perfil.saludo}</p>
-              <h1 className="v3-display mt-3">
-                {perfil.titularA}
-                <br />
-                {perfil.titularB}
-              </h1>
-            </div>
-            <div className="flex max-w-[348px] flex-col gap-4 lg:pt-[70px]">
-              <p className="v3-lead text-balance">{perfil.frase}</p>
-              <p className="v3-body-sm text-pretty opacity-80">{perfil.resumen}</p>
-            </div>
+          {/* Solo saludo y titular: la frase y el resumen viven en «Sobre mí»,
+              para que el banner respire y gane la foto. */}
+          <div className="text-c-on-hero">
+            <p className="v3-lead">{perfil.saludo}</p>
+            <h1 className="v3-display mt-3">
+              {perfil.titularA}
+              <br />
+              {perfil.titularB}
+            </h1>
           </div>
         </div>
 

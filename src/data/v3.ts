@@ -50,8 +50,9 @@ export const marcas = [
 
 export const sobreMi = {
   eyebrow: "Sobre mí",
-  titulo: "Diseño pensando en las personas y en el negocio",
-  lead: "Uno investigación, sistemas de diseño y objetivos de negocio para que cada producto sea claro y fácil de usar.",
+  // La frase y el resumen salieron del banner y encabezan esta sección.
+  titulo: perfil.frase,
+  lead: perfil.resumen,
   especialidades: [
     "Diseño de experiencia de usuario (UX)",
     "Diseño de servicios",
