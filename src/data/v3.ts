@@ -246,6 +246,7 @@ export const educacion = [
 ];
 
 export const certificados = [
+  { fecha: "Oct 2026", titulo: "Curso Completo de Claude Code: Crea Aplicaciones con IA", emisor: "Udemy", id: "UC-474caead-a276-42a9-8c33-af343682a16e", href: "https://www.udemy.com/certificate/UC-474caead-a276-42a9-8c33-af343682a16e/" },
   { fecha: "Ago 2025", titulo: "Service Design: Designing for Experience Over Time", emisor: "Udemy", id: "UC-76bca087-8a1b-47e5-a6f8-e4e7a9e95dca", href: "https://www.udemy.com/certificate/UC-76bca087-8a1b-47e5-a6f8-e4e7a9e95dca/" },
   { fecha: "Jun 2025", titulo: "UX-PM Level 2", emisor: "UXalliance", id: "UX-PM2-4399-ECU25-0020", href: "https://ux-pm.com/profile/jorge-enriquerodriguez-cedeno-9c9e9c0d-0a45-4824-a96e-56dc12e86bea" },
   { fecha: "Abr 2024", titulo: "Diseño web con Figma: creación de interfaces eficaces", emisor: "Domestika", id: "3a98f0e6d05ff2fe1b26e7b1fa368486", href: "https://www.domestika.org/es/certificates/3a98f0e6d05ff2fe1b26e7b1fa368486" },
