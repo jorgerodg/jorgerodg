@@ -339,6 +339,49 @@ body:has(.v3-root) {
     animation-timeline: --v3-oficio;
     animation-range: cover 30% cover 70%;
   }
+
+  /* La sección activa no puede depender solo del color: la arena y el gris
+     de reposo tienen la misma luminosidad (1:1 entre sí) y solo cambia el
+     tono. Se marca también con la barra inferior del enlace, la misma del
+     hover, en arena y con el mismo rango. */
+  @keyframes v3-subrayado-activo {
+    0%,
+    100% {
+      scale: 0 1;
+      background-color: currentColor;
+    }
+    3%,
+    97% {
+      scale: 1 1;
+      background-color: var(--color-c-accent);
+    }
+  }
+
+  .v3-barra a:has([data-seccion="trabajo"])::after {
+    animation: v3-subrayado-activo linear both;
+    animation-timeline: --v3-trabajo;
+    animation-range: cover 30% cover 70%;
+  }
+
+  .v3-barra a:has([data-seccion="trayectoria"])::after {
+    animation: v3-subrayado-activo linear both;
+    animation-timeline: --v3-trayectoria;
+    animation-range: cover 30% cover 70%;
+  }
+
+  .v3-barra a:has([data-seccion="oficio"])::after {
+    animation: v3-subrayado-activo linear both;
+    animation-timeline: --v3-oficio;
+    animation-range: cover 30% cover 70%;
+  }
+
+  /* La animación gana a las clases normales, así que el hover de las otras
+     secciones necesita `!important` para seguir mostrando su barra. */
+  @media (hover: hover) {
+    .v3-barra a:hover::after {
+      scale: 1 1 !important;
+    }
+  }
 }
 
 /* En pantallas estrechas los enlaces de la barra bajan a 14 px para caber los
@@ -356,4 +399,65 @@ body:has(.v3-root) {
   .v3-barra {
     display: none;
   }
+}
+
+/* Velos del banner. Funden los bordes del retrato en el fondo: a la derecha
+   y abajo, más intensos; arriba, una franja suave detrás del menú. Van en el
+   color de velo de la paleta, no escritos a mano, para que cambien con ella. */
+/* El de la derecha se mide desde el borde (300 px) y no en %: así, cuando la
+   foto se corre a la derecha en portátiles, el velo no le lava la cara. En
+   móvil, sin foto, `max()` deja los porcentajes de siempre. */
+.v3-velo-der {
+  background-image: linear-gradient(90deg,
+    transparent max(50%, 100% - 300px),
+    color-mix(in srgb, var(--color-c-velo) 72%, transparent) max(78%, 100% - 110px),
+    color-mix(in srgb, var(--color-c-velo) 94%, transparent) 100%);
+}
+/* El de abajo funde la foto en la propia arena, no en el velo: la fila de
+   disciplinas va en tinta encima y, sobre el velo o sobre la chaqueta, se
+   quedaba por debajo de Lc 60. Al 86 % de alto ya cubre el 92 %. */
+.v3-velo-abajo {
+  background-image: linear-gradient(to bottom,
+    transparent 50%,
+    color-mix(in srgb, var(--color-c-accent) 92%, transparent) 86%,
+    var(--color-c-accent) 100%);
+}
+.v3-velo-arriba {
+  background-image: linear-gradient(to bottom,
+    color-mix(in srgb, var(--color-c-velo) 42%, transparent) 0%,
+    transparent 100%);
+}
+
+/* Selección de texto con la marca: arena sobre el fondo oscuro y, en las
+   superficies de acento (banner y pie), tinta, para que el resaltado se vea. */
+.v3-root ::selection {
+  background-color: var(--color-c-accent);
+  color: var(--color-c-on-accent);
+}
+
+.v3-root .v3-sobre-acento ::selection {
+  background-color: var(--color-c-on-accent);
+  color: var(--color-c-accent);
+}
+
+/* Retrato del banner (desde lg).
+   Ancho: sigue al banner entre 540 y 643 px. Más estrecho, la foto acabaría
+   antes del pie; más ancho (el banner ya no crece en alto), la cara se
+   agrandaría.
+   Posición: la mayor de dos.
+   1. La de diseño: respecto al centro, como el contenido, más un 11 % del
+      ancho que compensa el volteo de la foto.
+   2. La que deja libre el titular: el texto va en tinta y sobre la chaqueta
+      se perdía (1,9:1 a 1024 px). «de producto» mide 5,14 veces su cuerpo y
+      empieza en el margen del contenido; la chaqueta empieza a un 17 % del
+      ancho de la foto. Se dejan 24 px de aire.
+   Entre 1024 y 1366 px manda la segunda; desde 1440, casi igual la primera. */
+.v3-retrato {
+  --ancho-retrato: clamp(540px, 44.65%, 643px);
+  --fin-titular: calc(max(4rem, (100% - 1312px) / 2) + 5.14 * clamp(3rem, 8.5vw, 7rem));
+  width: var(--ancho-retrato);
+  left: max(
+    calc(50% - min(17.3%, 249px) + 0.11 * var(--ancho-retrato)),
+    calc(var(--fin-titular) + 24px - 0.17 * var(--ancho-retrato))
+  );
 }

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Cabecera, CONTENEDOR, SECCION } from "./ui";
+import { Cabecera, CONTENEDOR, Flecha, SECCION } from "./ui";
 import { imagenesDeCaso } from "@/lib/casos-imagenes";
 import { casos } from "@/data/v3";
 
@@ -34,14 +34,8 @@ export default function Trabajo() {
                       <span className="v3-label rounded-full bg-c-bg px-3.5 py-2 text-c-fg">
                         {c.tag}
                       </span>
-                      <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-c-accent opacity-0 transition-opacity duration-150 ease-[cubic-bezier(0.2,0,0,1)] group-hover:opacity-100 group-focus-visible:opacity-100">
-                        <Image
-                          src="/v3/flecha.svg"
-                          alt=""
-                          width={16}
-                          height={16}
-                          className="-rotate-45"
-                        />
+                      <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-c-accent text-c-on-accent opacity-0 transition-opacity duration-150 ease-[cubic-bezier(0.2,0,0,1)] group-hover:opacity-100 group-focus-visible:opacity-100">
+                        <Flecha className="-rotate-45" />
                       </span>
                     </div>
                     {!portada && (

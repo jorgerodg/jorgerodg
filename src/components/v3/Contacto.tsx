@@ -13,7 +13,7 @@ export default function Contacto() {
 
   return (
     <footer id="contacto" className="scroll-mt-24 px-6 pb-6">
-      <div className="rounded-[48px] bg-c-accent px-6 pt-16 pb-10 text-c-on-accent sm:px-10 lg:px-16 lg:pt-24">
+      <div className="v3-sobre-acento rounded-[48px] bg-c-accent px-6 pt-16 pb-10 text-c-on-accent sm:px-10 lg:px-16 lg:pt-24">
         <div className={`${CONTENEDOR} flex flex-col gap-10`}>
           <p className="v3-eyebrow">Contacto</p>
           <h2 className="v3-contacto max-w-[1040px] text-balance">

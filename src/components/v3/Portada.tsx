@@ -14,69 +14,42 @@ export default function Portada() {
     <section id="inicio" className="overflow-hidden rounded-b-[48px] bg-c-surface">
       {/* Tres bloques repartidos en vertical: barra arriba, titular al centro
           alto y servicios al pie, como en el diseño. */}
-      <div className="relative flex min-h-[620px] flex-col justify-between gap-16 overflow-hidden rounded-b-[48px] bg-c-accent px-6 pt-8 pb-14 sm:px-10 lg:min-h-[820px] lg:gap-0 lg:px-16">
-        {/* El retrato va en multiply sobre el naranja: es lo que tiñe la foto.
+      <div className="v3-sobre-acento relative flex min-h-[620px] flex-col justify-between gap-16 overflow-hidden rounded-b-[48px] bg-c-accent px-6 pt-8 pb-14 sm:px-10 lg:min-h-[820px] lg:gap-0 lg:px-16">
+        {/* El retrato va en multiply sobre la arena: es lo que lo tiñe de sepia.
             Solo se muestra desde lg. En móvil y tablet tapaba el texto y el
             banner funciona mejor limpio; al ir sin `priority` y oculto, esos
             dispositivos ni siquiera lo descargan.
             La foto es un plano medio ya recortado: blanco y negro, fondo blanco
-            (que en multiply queda naranja) y volteada en horizontal. Así el
-            brazo, que la cámara corta, se pierde en el degradado oscuro de la
-            derecha, y el portátil se funde a blanco hacia el titular (lo que
-            de paso tapa el logo de Apple, que al voltear saldría al revés).
-            Su ancho sigue al banner, pero solo entre 540 y 643px: más
-            estrecha, acabaría antes del pie del banner; más ancha (el alto del
-            banner ya no crece), la cara se agrandaría y se echaría encima del
-            titular. Se sitúa respecto al centro, igual que el contenido; el
-            último término de `left` (11 % del ancho) compensa el volteo, que
-            desplazaba la cabeza hacia el titular. */}
+            (que en multiply queda arena) y volteada en horizontal. El ancho y
+            la posición viven en `.v3-retrato` (v3.css), con sus cuentas. */}
         <Image
           src={perfil.retrato}
           alt={`Retrato de ${perfil.nombre}`}
           width={1097}
           height={1514}
           sizes="(min-width: 1440px) 643px, (min-width: 1210px) 45vw, 540px"
-          className="pointer-events-none absolute top-[72px] left-[calc(50%_-_min(17.3%,249px)_+_0.11_*_clamp(540px,44.65%,643px))] hidden h-auto w-[clamp(540px,44.65%,643px)] max-w-none mix-blend-multiply lg:block"
+          className="v3-retrato pointer-events-none absolute top-[72px] hidden h-auto max-w-none mix-blend-multiply lg:block"
         />
 
-        {/* Sin la foto, el texto blanco pequeño caía sobre naranja puro y se
-            quedaba en 3,1:1. Este velo repone, solo por debajo de lg, el
-            oscurecido que aportaba el retrato en multiply. */}
+        {/* Por debajo de lg no hay foto: este velo repone el tono que aportan
+            los degradados en escritorio, para que el banner sea el mismo color
+            en todos los tamaños. El texto en tinta queda en 10:1 igualmente. */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 bg-c-shade/[0.27] lg:hidden"
+          className="pointer-events-none absolute inset-0 bg-c-velo/[0.27] lg:hidden"
         />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-          style={{
-            backgroundImage:
-              "linear-gradient(90deg, rgba(22,8,4,0) 0%, rgba(22,8,4,0.05) 50%, rgba(22,8,4,0.72) 78%, rgba(22,8,4,0.94) 100%)",
-          }}
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-          style={{
-            backgroundImage:
-              "linear-gradient(to bottom, rgba(22,8,4,0) 0%, rgba(22,8,4,0) 50%, rgba(22,8,4,0.78) 100%)",
-          }}
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 h-[220px]"
-          style={{
-            backgroundImage:
-              "linear-gradient(to bottom, rgba(22,8,4,0.42) 0%, rgba(22,8,4,0) 100%)",
-          }}
-        />
+        {/* Primero el de abajo y encima el de la derecha: así la esquina
+            inferior derecha conserva el velo y no aparece una L más clara. */}
+        <div aria-hidden className="v3-velo-abajo pointer-events-none absolute inset-0" />
+        <div aria-hidden className="v3-velo-der pointer-events-none absolute inset-0" />
+        <div aria-hidden className="v3-velo-arriba pointer-events-none absolute inset-x-0 top-0 h-[220px]" />
 
         <div className={`relative ${CONTENEDOR}`}>
           <nav
             aria-label="Principal"
             className="flex flex-wrap items-center justify-between gap-x-6 gap-y-4 text-c-on-hero"
           >
-            <Marca sobre="naranja" className="order-1" />
+            <Marca sobre="acento" className="order-1" />
             {/* En móvil la marca y el botón comparten la primera fila y los
                 enlaces bajan a la suya; así ninguno se recorta. */}
             <div className="order-2 sm:order-3">
@@ -111,7 +84,7 @@ export default function Portada() {
           <ul className="grid grid-cols-2 gap-x-6 gap-y-6 text-c-on-hero lg:grid-cols-4">
             {servicios.map((s) => (
               <li key={s.n} className="flex flex-col gap-1.5">
-                <span className="v3-body-sm opacity-70">{s.n}</span>
+                <span className="v3-body-sm opacity-80">{s.n}</span>
                 <span className="v3-label">{s.label}</span>
               </li>
             ))}

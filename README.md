@@ -7,11 +7,13 @@ Presenta su perfil, casos seleccionados, trayectoria, herramientas y formación.
 
 ## Características
 
-- **Diseño propio**, llevado a código a partir del archivo de Figma: tema
-  oscuro, acento naranja y tipografía Outfit.
+- **Diseño propio**, llevado a código a partir del archivo de Figma: paleta
+  «arena y tinta» (fondo azul tinta, acento arena) y tipografía Outfit.
 - **Adaptable** de 320 px a pantallas grandes, sin desplazamiento horizontal.
-- **Accesible**: contraste AA, navegación completa por teclado, enlace para
-  saltar al contenido y respeto de la preferencia de movimiento reducido.
+- **Accesible**: contraste AA medido en la página renderizada (también APCA),
+  anillo de foco visible sobre cualquier fondo, navegación completa por
+  teclado, enlace para saltar al contenido y respeto de la preferencia de
+  movimiento reducido.
 - **Efectos de scroll en CSS**, sin JavaScript: revelado de secciones e
   indicador de la sección activa en el menú.
 - **Logo animado**, también en CSS: se construye al cargar y, terminada la

@@ -11,22 +11,22 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0c0c0c;
-    --surface: #141414;
-    --fg: #f2f2f2;
-    --muted: #a0a0a0;
-    --faint: #8a8a8a;
-    --line: #272727;
+    --bg: #091019;
+    --surface: #101722;
+    --fg: #f1f4f7;
+    --muted: #c8ced7;
+    --faint: #afb5bd;
+    --line: #262e3a;
   }
 }
 
 :root[data-theme="dark"] {
-  --bg: #0c0c0c;
-  --surface: #141414;
-  --fg: #f2f2f2;
-  --muted: #a0a0a0;
-  --faint: #8a8a8a;
-  --line: #272727;
+  --bg: #091019;
+  --surface: #101722;
+  --fg: #f1f4f7;
+  --muted: #c8ced7;
+  --faint: #afb5bd;
+  --line: #262e3a;
 }
 
 @theme inline {
@@ -37,18 +37,25 @@
   --color-faint: var(--faint);
   --color-line: var(--line);
 
-  /* Paleta del sitio. Valores tomados de las variables del archivo de Figma,
-     no de los fallbacks de la plantilla generada, que eran de Tailwind. */
-  --color-c-bg: #0c0c0c;
-  --color-c-surface: #141414;
-  --color-c-fg: #f2f2f2;
-  --color-c-muted: #a0a0a0;
-  --color-c-faint: #8a8a8a;
-  --color-c-line: #272727;
-  --color-c-accent: #ff5b14;
-  --color-c-on-accent: #0c0c0c;
-  --color-c-on-hero: #ffffff;
-  --color-c-shade: #160804;
+  /* Paleta «Arena y tinta». Se calculó en OKLCH y se escribe en hex, como el
+     resto del proyecto. Contraste medido (WCAG / APCA) en el comentario.
+     Neutros: un solo tono, el azul tinta del traje (H 258), del fondo al texto. */
+  --color-c-bg: #091019; /* L 0.17 */
+  --color-c-surface: #101722; /* L 0.205 */
+  --color-c-line: #262e3a; /* L 0.30 */
+  --color-c-fg: #f1f4f7; /* 17,3:1 · Lc 100 sobre el fondo */
+  --color-c-muted: #c8ced7; /* 12,1:1 · Lc 76: texto de lectura */
+  --color-c-faint: #afb5bd; /* 9,2:1 · Lc 61: datos secundarios (ID) */
+  /* Acento arena (H 78). Es superficie (banner, pie, botón principal) y
+     también texto sobre el fondo: 12:1 · Lc 76. */
+  --color-c-accent: #e2caa6;
+  /* Lo que va encima del acento: texto, iconos y la píldora del botón que
+     se apoya en él. 11,4:1 · Lc 76. */
+  --color-c-on-accent: #0d1624;
+  --color-c-on-hero: #0d1624;
+  /* Velo del banner: arena más oscura. Funde los bordes de la foto en el
+     fondo del banner. */
+  --color-c-velo: #d0b28e;
 }
 
 html {
@@ -59,6 +66,7 @@ body {
   background: var(--bg);
   color: var(--fg);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 

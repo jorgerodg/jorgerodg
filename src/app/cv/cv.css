@@ -1,6 +1,6 @@
 /* Hoja para imprimir. En papel manda el claro: el oscuro del sitio gasta
    tinta, se imprime sucio y resta legibilidad. Se conserva la tipografía y
-   el naranja de la marca, pero solo como estructura. */
+   el acento de la marca, pero solo como estructura. */
 @page {
   size: A4;
   margin: 14mm 14mm 12mm;
@@ -11,7 +11,9 @@
   --suave: #5a5a5a;
   --tenue: #8a8a8a;
   --filete: #dcdcdc;
-  --acento: #d94a0c; /* el naranja de pantalla, bajado para que no sature en papel */
+  /* La arena de pantalla no se lee sobre papel blanco: aquí va un escalón
+     mucho más oscuro del mismo tono (bronce). 6:1 sobre blanco · Lc 80. */
+  --acento: #7c5d34;
 
   font-family: var(--font-cv), ui-sans-serif, system-ui, sans-serif;
   color: var(--tinta);

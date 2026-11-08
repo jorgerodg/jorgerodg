@@ -1,9 +1,39 @@
-import Image from "next/image";
+/** Flecha de los botones. Va en línea y con `currentColor`, no como imagen:
+ *  así toma el color que le toca en cada estado y nunca queda blanca sobre
+ *  un círculo claro. */
+export function Flecha({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 16 16"
+      width={16}
+      height={16}
+      fill="none"
+      aria-hidden="true"
+      className={className}
+    >
+      <path
+        d="M3 8H13M9 12L13 8L9 4"
+        stroke="currentColor"
+        strokeWidth={1.6}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
 /**
  * C / Botón — píldora con círculo y flecha.
  * Descrito así en Figma: «Hover: el círculo cambia de color y la flecha gira
  * 45° hacia arriba. Foco: anillo de 2 px».
+ *
+ * Cada variante fija sus propios pares de color, medidos:
+ * - `claro` va sobre el acento (banner y pie): píldora tinta con texto arena
+ *   (11,4:1); círculo arena con flecha tinta, que al pasar el cursor pasa a
+ *   blanco. El anillo de foco es tinta, porque cae sobre la arena.
+ * - `acento` va sobre el fondo oscuro: píldora arena con texto tinta; círculo
+ *   tinta con flecha arena, que pasa a blanco con flecha tinta. El anillo de
+ *   foco es arena, porque cae sobre el fondo.
  */
 export function Boton({
   children,
@@ -18,30 +48,28 @@ export function Boton({
   external?: boolean;
   tono?: "claro" | "acento";
 }) {
-  const base = tono === "claro" ? "bg-c-on-hero text-c-shade" : "bg-c-accent text-c-on-accent";
-  const circulo = tono === "claro" ? "bg-c-accent group-hover:bg-c-shade" : "bg-c-shade group-hover:bg-c-on-hero";
-  // La flecha del asset es de trazo blanco. En la variante acento el círculo se
-  // aclara al pasar por encima, así que la flecha se invierte para no
-  // desaparecer: blanco sobre blanco era invisible.
-  const flecha = tono === "acento" ? "group-hover:invert" : "";
+  const estilos =
+    tono === "claro"
+      ? {
+          base: "bg-c-on-accent text-c-accent focus-visible:outline-c-on-accent",
+          circulo: "bg-c-accent text-c-on-accent group-hover:bg-c-fg",
+        }
+      : {
+          base: "bg-c-accent text-c-on-accent focus-visible:outline-c-accent",
+          circulo: "bg-c-on-accent text-c-accent group-hover:bg-c-fg group-hover:text-c-on-accent",
+        };
   return (
     <a
       href={href}
       download={download}
       {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
-      className={`group inline-flex shrink-0 items-center gap-3.5 rounded-full py-1.5 ps-[22px] pe-1.5 transition-[scale] duration-150 ease-[cubic-bezier(0.2,0,0,1)] active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current ${base}`}
+      className={`group inline-flex shrink-0 items-center gap-3.5 rounded-full py-1.5 ps-[22px] pe-1.5 transition-[scale] duration-150 ease-[cubic-bezier(0.2,0,0,1)] active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-offset-4 ${estilos.base}`}
     >
       <span className="v3-label">{children}</span>
       <span
-        className={`flex size-9 items-center justify-center rounded-full transition-colors duration-150 ease-[cubic-bezier(0.2,0,0,1)] ${circulo}`}
+        className={`flex size-9 items-center justify-center rounded-full transition-colors duration-150 ease-[cubic-bezier(0.2,0,0,1)] ${estilos.circulo}`}
       >
-        <Image
-          src="/v3/flecha.svg"
-          alt=""
-          width={16}
-          height={16}
-          className={`transition-[rotate,filter] duration-150 ease-[cubic-bezier(0.2,0,0,1)] group-hover:-rotate-45 ${flecha}`}
-        />
+        <Flecha className="transition-[rotate] duration-150 ease-[cubic-bezier(0.2,0,0,1)] group-hover:-rotate-45" />
       </span>
       {external && <span className="sr-only">(abre en una pestaña nueva)</span>}
     </a>

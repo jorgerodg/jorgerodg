@@ -12,9 +12,9 @@ const PATA = "M33.8667 36.2666H42.9334L53.8667 54.1333H44.8L33.8667 36.2666Z";
  * Logo del sitio: el monograma JR con el nombre de usuario, la variante
  * «Usuario» del tablero «C · Aplicaciones» de Figma.
  *
- * Sobre el naranja del banner va el monograma entero en blanco, como en la
- * «Barra del sitio» del mismo tablero (40 px y texto de título). Sobre fondo
- * oscuro lleva el cuerpo claro y la pata naranja.
+ * Sobre el acento del banner va el monograma entero en el color del texto
+ * (tinta), como en la «Barra del sitio» del mismo tablero (40 px y texto de
+ * título). Sobre fondo oscuro lleva el cuerpo claro y la pata en arena.
  *
  * La animación vive en `v3.css`, bajo `.v3-logo`. Cada pieza va dentro de un
  * `<svg>` anidado que hace de máscara: el cuerpo sube desde su línea base y
@@ -26,10 +26,10 @@ export default function Marca({
   sobre = "oscuro",
   className = "",
 }: {
-  sobre?: "oscuro" | "naranja";
+  sobre?: "oscuro" | "acento";
   className?: string;
 }) {
-  const enBanner = sobre === "naranja";
+  const enBanner = sobre === "acento";
   const lado = enBanner ? 40 : 28;
   return (
     <a
