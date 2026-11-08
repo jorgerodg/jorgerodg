@@ -20,19 +20,23 @@ export default function Portada() {
             banner funciona mejor limpio; al ir sin `priority` y oculto, esos
             dispositivos ni siquiera lo descargan.
             La foto es un plano medio ya recortado: blanco y negro, fondo blanco
-            (que en multiply queda naranja) y los bordes donde la cámara corta
-            el brazo y el portátil fundidos a blanco. Su ancho sigue al banner,
-            pero solo entre 540 y 643px: más estrecha, acabaría antes del pie
-            del banner; más ancha (el alto del banner ya no crece), la cara se
-            agrandaría y se echaría encima del titular. Se sitúa respecto al
-            centro, igual que el contenido. */}
+            (que en multiply queda naranja) y volteada en horizontal. Así el
+            brazo, que la cámara corta, se pierde en el degradado oscuro de la
+            derecha, y el portátil se funde a blanco hacia el titular (lo que
+            de paso tapa el logo de Apple, que al voltear saldría al revés).
+            Su ancho sigue al banner, pero solo entre 540 y 643px: más
+            estrecha, acabaría antes del pie del banner; más ancha (el alto del
+            banner ya no crece), la cara se agrandaría y se echaría encima del
+            titular. Se sitúa respecto al centro, igual que el contenido; el
+            último término de `left` (11 % del ancho) compensa el volteo, que
+            desplazaba la cabeza hacia el titular. */}
         <Image
           src={perfil.retrato}
           alt={`Retrato de ${perfil.nombre}`}
           width={1097}
           height={1514}
           sizes="(min-width: 1440px) 643px, (min-width: 1210px) 45vw, 540px"
-          className="pointer-events-none absolute top-[72px] left-[calc(50%_-_min(17.3%,249px))] hidden h-auto w-[clamp(540px,44.65%,643px)] max-w-none mix-blend-multiply lg:block"
+          className="pointer-events-none absolute top-[72px] left-[calc(50%_-_min(17.3%,249px)_+_0.11_*_clamp(540px,44.65%,643px))] hidden h-auto w-[clamp(540px,44.65%,643px)] max-w-none mix-blend-multiply lg:block"
         />
 
         {/* Sin la foto, el texto blanco pequeño caía sobre naranja puro y se

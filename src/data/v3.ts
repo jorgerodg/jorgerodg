@@ -26,7 +26,7 @@ export const perfil = {
   // el 0998878644 local pierde el 0 inicial y lleva delante el 593 de Ecuador.
   whatsapp: "593998878644",
   cv: "/cv-jorge-rodriguez.pdf",
-  retrato: "/v3/retrato-banner.jpg",
+  retrato: "/v3/retrato-banner-espejo.jpg",
   // Retrato del CV: recorte de cabeza y hombros, pensado para papel.
   retratoCv: "/v3/retrato-cv.jpg",
   linkedin: "https://www.linkedin.com/in/jorgerodg",
