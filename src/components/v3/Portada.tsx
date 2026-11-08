@@ -19,17 +19,20 @@ export default function Portada() {
             Solo se muestra desde lg. En móvil y tablet tapaba el texto y el
             banner funciona mejor limpio; al ir sin `priority` y oculto, esos
             dispositivos ni siquiera lo descargan.
-            Se reproduce el encuadre exacto del diseño: lo sube 480px sobre una
-            imagen de 2000 de alto, o sea un 24 % de su propia altura. Va como
-            translate y no como `top` en píxeles: con un valor fijo, a 1024px
-            la imagen es menor y el recorte se comía la cabeza. */}
+            La foto es un plano medio ya recortado: blanco y negro, fondo blanco
+            (que en multiply queda naranja) y los bordes donde la cámara corta
+            el brazo y el portátil fundidos a blanco. Su ancho sigue al banner,
+            pero solo entre 540 y 643px: más estrecha, acabaría antes del pie
+            del banner; más ancha (el alto del banner ya no crece), la cara se
+            agrandaría y se echaría encima del titular. Se sitúa respecto al
+            centro, igual que el contenido. */}
         <Image
           src={perfil.retrato}
           alt={`Retrato de ${perfil.nombre}`}
-          width={1500}
-          height={2000}
-          sizes="1500px"
-          className="pointer-events-none absolute top-0 left-0 hidden h-auto w-[104.1667%] max-w-none -translate-y-[24%] mix-blend-multiply lg:block"
+          width={1097}
+          height={1514}
+          sizes="(min-width: 1440px) 643px, (min-width: 1210px) 45vw, 540px"
+          className="pointer-events-none absolute top-[72px] left-[calc(50%_-_min(17.3%,249px))] hidden h-auto w-[clamp(540px,44.65%,643px)] max-w-none mix-blend-multiply lg:block"
         />
 
         {/* Sin la foto, el texto blanco pequeño caía sobre naranja puro y se
