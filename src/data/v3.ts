@@ -162,17 +162,17 @@ export const trayectoria: {
     rango: "2021 – Presente", empresa: "Banco del Pacífico", lugar: "Ecuador",
     cargos: [
       { titulo: "Lead UX Designer", periodo: "Sep 2025 – Presente",
-        intro: "Lidero la transformación de la experiencia del cliente en el banco, impulsando innovación y consistencia en todos los canales. Estoy a cargo de la experiencia de usuario en:",
+        intro: "Lidero el equipo de UX y la transformación de la experiencia del cliente, con un mismo criterio en todos los canales. Tengo a cargo la experiencia de:",
         vinetas: [
-          "Banca Personas.",
-          "Banca Empresas.",
-          "Canales físicos: Mi Banco, kioscos de autoservicio y cajeros automáticos.",
+          "Banca Personas",
+          "Banca Empresas",
+          "Canales físicos: Mi Banco, kioscos de autoservicio y cajeros automáticos",
         ] },
       { titulo: "UI/UX Designer", periodo: "May 2021 – Sep 2025",
-        intro: "Responsable de la interfaz de usuario de los productos y servicios del banco, en colaboración con desarrolladores y product owners, para que sea fácil de usar y brinde una experiencia positiva.",
+        intro: "Diseñé la interfaz de los productos y servicios del banco, junto a desarrolladores y product owners, para que fueran fáciles de usar.",
         vinetas: [
-          "Apliqué principios de diseño centrado en el usuario para mejorar la experiencia del cliente.",
-          "Trabajé el proceso de UX completo: descubrimiento, definición, desarrollo y entrega.",
+          "Apliqué el diseño centrado en el usuario para mejorar la experiencia de los clientes.",
+          "Trabajé en todas las etapas del proceso de UX: descubrimiento, definición, desarrollo y entrega.",
         ] },
     ],
   },
@@ -181,9 +181,9 @@ export const trayectoria: {
     cargos: [
       { titulo: "Lead UI Designer", periodo: "Dic 2018 – May 2021",
         vinetas: [
-          "Lideré al equipo de diseño de interfaz.",
-          "Impulsé la práctica de diseño centrado en el usuario.",
-          "Cuidé la consistencia de la experiencia entre productos.",
+          "Lideré el equipo de diseño de interfaz.",
+          "Impulsé el diseño centrado en el usuario como forma de trabajo.",
+          "Mantuve una experiencia coherente entre los distintos productos.",
           "Trabajé con equipos interdisciplinarios en ciclos iterativos.",
         ] },
       { titulo: "UI Designer", periodo: "Nov 2016 – Dic 2018" },
@@ -191,20 +191,20 @@ export const trayectoria: {
   },
   {
     rango: "2016", empresa: "BBB Editions", lugar: "Argentina",
-    cargos: [{ titulo: "Diseñador Gráfico", periodo: "Feb 2016 – Jun 2016" }],
-    nota: "Maquetación de la revista premium de BMW Argentina.",
+    cargos: [{ titulo: "Diseñador gráfico", periodo: "Feb 2016 – Jun 2016" }],
+    nota: "Maqueté la revista premium de BMW Argentina.",
   },
   {
     rango: "2015–2017", empresa: "Diseño Latinoamérica LATAM", lugar: "Argentina",
-    cargos: [{ titulo: "Diseñador Gráfico — Freelance", periodo: "Nov 2015 – Feb 2017", intro: "Diseñador freelance para dlatinoamerica.com." }],
+    cargos: [{ titulo: "Diseñador gráfico freelance", periodo: "Nov 2015 – Feb 2017", intro: "Diseñé para el sitio dlatinoamerica.com." }],
   },
   {
     rango: "2015–2016", empresa: "Cuatroochenta", lugar: "Argentina",
-    cargos: [{ titulo: "Trainer Certified", periodo: "Ago 2015 – Dic 2016", intro: "Clases en línea impartidas en conjunto con DLATAM LLC." }],
+    cargos: [{ titulo: "Certified Trainer", periodo: "Ago 2015 – Dic 2016", intro: "Di clases en línea junto con DLATAM LLC." }],
   },
   {
     rango: "2012–2013", empresa: "Creart", lugar: "Argentina",
-    cargos: [{ titulo: "Imprenta", periodo: "Sep 2012 – Feb 2013", intro: "Impresión y preimpresión." }],
+    cargos: [{ titulo: "Imprenta", periodo: "Sep 2012 – Feb 2013", intro: "Trabajé en impresión y preimpresión." }],
   },
 ];
 
