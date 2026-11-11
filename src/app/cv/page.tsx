@@ -79,7 +79,7 @@ export default function CvPage() {
         <h2 className="cv-seccion">Experiencia</h2>
         <ol className="cv-filete mt-2 pt-1">
           {trayectoria.map((t) => (
-            <li key={t.empresa} className="cv-junto grid grid-cols-[30mm_1fr] gap-x-4 py-3">
+            <li key={t.empresa} className="cv-junto grid grid-cols-[30mm_1fr] gap-x-4 py-[2.6mm]">
               <p className="cv-meta pt-[1mm]">{t.rango}</p>
               <div>
                 <h3 className="cv-empresa">
@@ -135,7 +135,7 @@ export default function CvPage() {
         <h2 className="cv-seccion">Certificados</h2>
         <ol className="cv-filete mt-2 pt-1">
           {certificados.map((c) => (
-            <li key={c.titulo} className="cv-junto grid grid-cols-[30mm_1fr] gap-x-4 py-[1.6mm]">
+            <li key={c.titulo} className="cv-junto grid grid-cols-[30mm_1fr] gap-x-4 py-[1.35mm]">
               <p className="cv-meta pt-[0.4mm]">{c.fecha}</p>
               <div>
                 <h3 className="cv-cargo">{c.titulo}</h3>
@@ -149,7 +149,7 @@ export default function CvPage() {
         </ol>
       </section>
 
-      <section className="mt-6">
+      <section className="cv-junto mt-6">
         <h2 className="cv-seccion">Herramientas y método</h2>
         <div className="cv-filete mt-2 grid grid-cols-5 gap-x-4 pt-3">
           {oficio.map((g) => (

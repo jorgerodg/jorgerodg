@@ -200,7 +200,7 @@ export const trayectoria: {
   },
   {
     rango: "2015–2016", empresa: "Cuatroochenta", lugar: "Argentina",
-    cargos: [{ titulo: "Certified Trainer", periodo: "Ago 2015 – Dic 2016", intro: "Impartí clases y capacitaciones sobre la plataforma 480interactive para maquetar revistas multimedia en InDesign y publicarlas en las tiendas de Android y iOS." }],
+    cargos: [{ titulo: "Certified Trainer", periodo: "Ago 2015 – Dic 2016", intro: "Impartí clases y capacitaciones sobre la plataforma 480interactive para maquetar revistas multimedia en InDesign y publicarlas en las tiendas de Android y iOS. La empresa partner fue Diseño Latinoamérica LATAM." }],
   },
   {
     rango: "2012–2013", empresa: "Creart", lugar: "Argentina",
