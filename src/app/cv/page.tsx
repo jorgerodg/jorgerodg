@@ -149,20 +149,19 @@ export default function CvPage() {
         </ol>
       </section>
 
+      {/* Un grupo por línea, con la misma columna de 30 mm que Experiencia:
+          en columnas, con seis grupos, todo se partía y el bloque ya no cabía
+          en la segunda página. */}
       <section className="cv-junto mt-6">
         <h2 className="cv-seccion">Herramientas y método</h2>
-        <div className="cv-filete mt-2 grid grid-cols-5 gap-x-4 pt-3">
+        <ol className="cv-filete mt-2 pt-1">
           {oficio.map((g) => (
-            <div key={g.titulo} className="cv-junto">
-              <h3 className="cv-cargo">{g.titulo}</h3>
-              <ul className="cv-suave mt-1">
-                {g.items.map((i) => (
-                  <li key={i.label}>{i.label}</li>
-                ))}
-              </ul>
-            </div>
+            <li key={g.titulo} className="grid grid-cols-[30mm_1fr] gap-x-4 py-[1.2mm]">
+              <p className="cv-meta pt-[0.4mm]">{g.titulo}</p>
+              <p className="cv-suave">{g.items.map((i) => i.label).join(" · ")}</p>
+            </li>
           ))}
-        </div>
+        </ol>
       </section>
     </main>
   );

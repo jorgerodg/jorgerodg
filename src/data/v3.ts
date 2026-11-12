@@ -238,6 +238,13 @@ export const oficio: { n: string; titulo: string; items: Herramienta[] }[] = [
     { label: "Design thinking" }, { label: "Human-centered design" },
     { label: "Lean UX" }, { label: "Wireframing" }, { label: "Pruebas de usabilidad" },
   ] },
+  { n: "#06", titulo: "IA y desarrollo", items: [
+    { label: "Claude", icono: "/v3/claude.svg" },
+    { label: "ChatGPT", icono: "/v3/chatgpt.svg" },
+    { label: "MCP (Model Context Protocol)", icono: "/v3/mcp.svg" },
+    { label: "Visual Studio Code", icono: "/v3/vscode.svg" },
+    { label: "Xcode", icono: "/v3/xcode.svg" },
+  ] },
 ];
 
 export const educacion = [

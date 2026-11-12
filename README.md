@@ -78,6 +78,12 @@ muestra por orden alfabético; la primera pasa a ser la portada de la tarjeta.
 - Behance: <https://www.behance.net/jorgero_dg>
 - Correo: <jorgero@me.com>
 
+## Créditos
+
+Iconos de herramientas de [Simple Icons](https://simpleicons.org) (CC0) y,
+el de Visual Studio Code, de [Devicon](https://devicon.dev) (MIT). Las marcas
+pertenecen a sus dueños y se usan solo para nombrar las herramientas.
+
 ---
 
 © Jorge Rodríguez. El código puede consultarse como referencia; el contenido,
