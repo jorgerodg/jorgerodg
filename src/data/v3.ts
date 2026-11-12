@@ -210,35 +210,35 @@ export const trayectoria: {
 
 export type Herramienta = { label: string; icono?: string };
 
-export const oficio: { n: string; titulo: string; items: Herramienta[] }[] = [
-  { n: "#01", titulo: "Investigación", items: [
+export const oficio: { titulo: string; items: Herramienta[] }[] = [
+  { titulo: "Investigación", items: [
     { label: "UXtweak", icono: "/v3/uxtweak.svg" },
     { label: "Lyssna", icono: "/v3/lyssna.svg" },
     { label: "Optimal Workshop", icono: "/v3/optimal-workshop.svg" },
     { label: "Maze", icono: "/v3/maze.svg" },
   ] },
-  { n: "#02", titulo: "Diseño de interfaz", items: [
+  { titulo: "Diseño de interfaz", items: [
     { label: "Figma", icono: "/v3/figma.svg" },
     { label: "Sketch", icono: "/v3/sketch.svg" },
     { label: "Adobe XD", icono: "/v3/adobe-xd.svg" },
   ] },
-  { n: "#03", titulo: "Prototipado", items: [
+  { titulo: "Prototipado", items: [
     { label: "Figma", icono: "/v3/figma.svg" },
     { label: "Zeplin", icono: "/v3/zeplin.svg" },
     { label: "Marvel App", icono: "/v3/marvel.svg" },
   ] },
-  { n: "#04", titulo: "Producción y gráfica", items: [
+  { titulo: "Producción y gráfica", items: [
     { label: "Adobe InDesign", icono: "/v3/adobe-indesign.svg" },
     { label: "Adobe Photoshop", icono: "/v3/adobe-photoshop.svg" },
     { label: "Adobe Illustrator", icono: "/v3/adobe-illustrator.svg" },
     { label: "Adobe After Effects", icono: "/v3/adobe-after-effects.svg" },
     { label: "CorelDRAW", icono: "/v3/coreldraw.svg" },
   ] },
-  { n: "#05", titulo: "Método y colaboración", items: [
+  { titulo: "Método y colaboración", items: [
     { label: "Design thinking" }, { label: "Human-centered design" },
     { label: "Lean UX" }, { label: "Wireframing" }, { label: "Pruebas de usabilidad" },
   ] },
-  { n: "#06", titulo: "IA y desarrollo", items: [
+  { titulo: "IA y conexiones", items: [
     { label: "Claude", icono: "/v3/claude.svg" },
     { label: "ChatGPT", icono: "/v3/chatgpt.svg" },
     { label: "MCP (Model Context Protocol)", icono: "/v3/mcp.svg" },

@@ -14,15 +14,12 @@ export default function Oficio() {
         <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-6">
           {oficio.map((g, i) => (
             <li
-              key={g.n}
+              key={g.titulo}
               className={`v3-revelar flex flex-col gap-5 rounded-3xl border border-c-line bg-c-surface p-6 ${
                 oficio.length % 3 === 2 && i >= oficio.length - 2 ? "lg:col-span-3" : "lg:col-span-2"
               } ${oficio.length % 2 === 1 && i === oficio.length - 1 ? "sm:col-span-2" : ""}`}
             >
-              <div className="flex flex-col gap-1.5">
-                <span className="v3-body-sm text-c-accent">{g.n}</span>
-                <h3 className="v3-title text-balance">{g.titulo}</h3>
-              </div>
+              <h3 className="v3-title text-balance">{g.titulo}</h3>
               <ul className="flex flex-col gap-2.5">
                 {g.items.map((i) => (
                   <li key={i.label} className="flex items-center gap-2.5">
