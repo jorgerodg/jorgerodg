@@ -235,8 +235,11 @@ export const oficio: { titulo: string; items: Herramienta[] }[] = [
     { label: "CorelDRAW", icono: "/v3/coreldraw.svg" },
   ] },
   { titulo: "Método y colaboración", items: [
-    { label: "Design thinking" }, { label: "Human-centered design" },
-    { label: "Lean UX" }, { label: "Wireframing" }, { label: "Pruebas de usabilidad" },
+    { label: "Design thinking", icono: "/v3/metodo-design-thinking.svg" },
+    { label: "Human-centered design", icono: "/v3/metodo-human-centered.svg" },
+    { label: "Lean UX", icono: "/v3/metodo-lean-ux.svg" },
+    { label: "Wireframing", icono: "/v3/metodo-wireframing.svg" },
+    { label: "Pruebas de usabilidad", icono: "/v3/metodo-usabilidad.svg" },
   ] },
   { titulo: "IA y conexiones", items: [
     { label: "Claude", icono: "/v3/claude.svg" },

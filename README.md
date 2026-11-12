@@ -82,7 +82,9 @@ muestra por orden alfabético; la primera pasa a ser la portada de la tarjeta.
 
 Iconos de herramientas de [Simple Icons](https://simpleicons.org) (CC0) y,
 el de Visual Studio Code, de [Devicon](https://devicon.dev) (MIT). Las marcas
-pertenecen a sus dueños y se usan solo para nombrar las herramientas.
+pertenecen a sus dueños y se usan solo para nombrar las herramientas. Los
+pictogramas de «Método y colaboración» son de [Lucide](https://lucide.dev)
+(ISC).
 
 ---
 
